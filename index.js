@@ -140,11 +140,10 @@ function processProduct(/* CODE HERE */ num1, num2, callback) {
  * "lady gaga" and `['foo', 'bar']` and `(bool) => bool ? 'nice!' : 'sad'`,
  * should return "sad".
  */
+//
 function processContains(/* CODE HERE */ item, list, callback) {
     /* CODE HERE */
-    for (i = 0; i < list.length; i++) {
-        if (list[i].item == item) return list[i].item;
-    }
+    return callback(list.includes(item));
 }
 
 /**
@@ -188,8 +187,13 @@ function processDuplicateFree(/* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS
  * @returns an array with all the runners' full names in the following format: "Smith, John".
  * The full names appear in the array in the same order the runners appear in the `runners` array.
  */
-function getFullNames(/* CODE HERE */) {
+function getFullNames(/* CODE HERE */ runners) {
     /* CODE HERE */
+    const fullNames = [];
+    runners.forEach(curValue => {
+        fullNames.push(`${curValue.last_name}, ${curValue.first_name}`);
+    });
+    return fullNames;
 }
 
 /**
@@ -204,8 +208,18 @@ function getFullNames(/* CODE HERE */) {
  * @returns an array with all the runners' first names in ALL CAPS.
  * The first names appear in the array in the same order the runners appear in the `runners` array.
  */
-function firstNamesAllCaps(/* CODE HERE */) {
-    /* CODE HERE */
+// const newCityData = cityData.map(function(item) {
+//     return item.state.toLowerCase();
+// });
+// console.log(newCityData);
+// const newUpperNames = runners.map(runners.first_name.toUpperCase());
+// /* CODE HERE */
+// return newUpperNames;
+function firstNamesAllCaps(/* CODE HERE */ runners) {
+    let newArray = runners.map(function(adjust) {
+        return adjust.first_name.toUpperCase();
+    });
+    return newArray;
 }
 
 /**
@@ -221,9 +235,7 @@ function firstNamesAllCaps(/* CODE HERE */) {
  * @returns an array containing only the runners that use the given `tShirtSize`.
  * The runners in the array appear in the same order they appear in the `runners` array.
  */
-function getRunnersByTShirtSize(/* CODE HERE */) {
-    /* CODE HERE */
-}
+function getRunnersByTShirtSize(runners, tShirtSize) {}
 
 /**
  * ### Challenge `tallyUpDonations`

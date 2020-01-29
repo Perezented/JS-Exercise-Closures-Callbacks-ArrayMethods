@@ -304,12 +304,25 @@ function counterMaker() {
  * counter() // should return 0
  * etc
  */
-function counterMakerWithLimit() {
-  let i;
-    let thisVariable = function(for(i = 0; i <= 3; i++) {
+function counterMakerWithLimit(max) {
+    let count = -1;
+    return function counter() {
+        if (count >= max) {
+            count = 0;
+        } else {
+            count++;
+        }
         return count;
-    }) 
-    return thisVariable;
+    };
+    // let count = -1;
+    // function counter() {
+    //     if (count >= max) {
+    //         count = 0;
+    //     } else {
+    //         count++;
+    //     }
+    //     return count;
+    // }
 }
 
 /////////////// END OF CHALLENGE ///////////////

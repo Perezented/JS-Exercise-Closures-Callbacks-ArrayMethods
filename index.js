@@ -137,9 +137,7 @@ function processProduct(num1, num2, cb) {
  * "lady gaga" and `['foo', 'bar']` and `(bool) => bool ? 'nice!' : 'sad'`,
  * should return "sad".
  */
-function processContains(item, array, cb) {
-    // console.log(item);
-}
+function processContains(item, array, cb) {}
 
 /**
  * ### Challenge `processDuplicateFree`
@@ -183,8 +181,11 @@ function processDuplicateFree(/* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS
  * The full names appear in the array in the same order the runners appear in the `runners` array.
  */
 function getFullNames(array) {
-    const stringName = `"${array.last_name}, ${array.first_name}"`;
-    array.forEach();
+    const runnerNames = [];
+    array.forEach(array => {
+        runnerNames.push(`${array.last_name}, ${array.first_name}`);
+    });
+    return runnerNames;
 }
 
 /**
@@ -199,8 +200,12 @@ function getFullNames(array) {
  * @returns an array with all the runners' first names in ALL CAPS.
  * The first names appear in the array in the same order the runners appear in the `runners` array.
  */
-function firstNamesAllCaps(/* CODE HERE */) {
-    /* CODE HERE */
+function firstNamesAllCaps(array) {
+    const fNameAllCaps = [];
+    array.forEach(array => {
+        fNameAllCaps.push(`${array.first_name.toUpperCase()}`);
+    });
+    return fNameAllCaps;
 }
 
 /**
@@ -216,8 +221,11 @@ function firstNamesAllCaps(/* CODE HERE */) {
  * @returns an array containing only the runners that use the given `tShirtSize`.
  * The runners in the array appear in the same order they appear in the `runners` array.
  */
-function getRunnersByTShirtSize(/* CODE HERE */) {
-    /* CODE HERE */
+function getRunnersByTShirtSize(array, size) {
+    const newArray = array.filter(function(array) {
+        return array.shirt_size == size;
+    });
+    return newArray;
 }
 
 /**
@@ -230,8 +238,11 @@ function getRunnersByTShirtSize(/* CODE HERE */) {
  * @param runners array of runners like the one inside the /data/runners.js file.
  * @returns a number which is the sum of the donations by all runners.
  */
-function tallyUpDonations(/* CODE HERE */) {
-    /* CODE HERE */
+function tallyUpDonations(array) {
+    const total = array.reduce(function(accum, item) {
+        return accum + item.donation;
+    }, 0);
+    return total;
 }
 
 /////////////// CLOSURES ///////////////
